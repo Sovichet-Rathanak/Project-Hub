@@ -1,0 +1,97 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+body, html {
+    font-family: "Satoshi";
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+main {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+}
+
+/* Header Section */
+.title-container {
+    width: 100%;
+    height: 9.375rem;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.title-container > h1 {
+    font-size: 40px;
+    font-weight: 900;
+    padding: 3.188rem 4.438rem;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Welcome Section */
+.left-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 0rem 0rem 10rem;
+}
+
+.welcome-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-container h1 {
+    font-size: clamp(2rem, 5vw, 70px);
+    margin: 0px 0px 40px 0px;
+}
+
+.welcome-container h5 {
+    font-size: 30px;
+    margin: 0px 0px 40px 0px;
+    color: grey;
+}
+
+.explore-button {
+    font-family: "Satoshi";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    gap: 20px;
+    width: 250px;
+    height: 70px;
+    border-radius: 150px;
+    align-self: flex-start;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+
+/* Right Section */
+.right-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.right-section .bubbles {
+    position: absolute;
+    display: flex;
+    align-self: flex-end;
+    top: clamp(-170px, -10%, -160px);
+    z-index: -1;
+}
+
+/* Media Queries for Responsiveness */
