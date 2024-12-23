@@ -1,0 +1,75 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+body{
+    font-family: "Satoshi";
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc{
+    border: 1px solid black;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.calc .display{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-indent: -70px;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 70px;
+}
+
+
+.keys{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.keys .spc-button{
+    grid-column: 4/5;
+    grid-row: 2/6;    
+}
+
+.keys > button{
+    font-family: "Satoshi"; 
+    border-radius: 0px;
+    background-color: white;
+    border: .5px solid lightgray;
+}
+
+.keys > button:hover{
+    background-color: whitesmoke;
+    transition: 100ms ease-in;
+}
+
+.keys .op{
+    background-color: lightgrey;
+    border-right: .5px solid grey;
+    border-bottom: .5px solid grey;
+}
+
+.keys .op:hover{
+    background-color: grey;
+    border: grey;
+}
+
+.keys .spc-button{
+    background-color: #fc8464;
+    border: #fc8464;
+}
+
+.keys .spc-button:hover{
+    background-color: #ee6e4a;
+    border: #ee6e4a;
+}   
