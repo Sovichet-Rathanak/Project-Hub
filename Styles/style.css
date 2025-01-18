@@ -76,22 +76,4 @@ main {
     cursor: pointer;
 }
 
-/* Right Section */
-.right-section {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    margin-top: 5rem;
-}
-
-.right-section .bubbles {
-    position: absolute;
-    display: flex;
-    align-self: flex-end;
-    top: clamp(-170px, -10%, -160px);
-    z-index: -1;
-}
-
 /* Media Queries for Responsiveness */

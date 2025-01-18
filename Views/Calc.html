@@ -8,33 +8,30 @@
     </head>
     <body>
         <div class="calc">
-            <div class="display">
-                Output
-            </div>
+            <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" class="display">
+                
+            </input>
 
             <div class="keys">
-                <button class="op">+</button>  
-                <button class="op">-</button>
-                <button class="op">×</button>
-                <button class="op">÷</button>
-
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button class="spc-button">=</button>
-                
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-
-                <button>0</button>
-                <button>.</button>
-                <button>C</button>
+                <button onclick="setActive('opPlus')" class="opPlus">+</button>  
+                <button onclick="setActive('opMin')" class="opMin">-</button>
+                <button onclick="setActive('opMul')" class="opMul">×</button>
+                <button onclick="setActive('opDiv')" class="opDiv">÷</button>
+                <button onclick="appendToScreen(7)" >7</button>
+                <button onclick="appendToScreen(8)" >8</button>
+                <button onclick="appendToScreen(9)" >9</button>
+                <button onclick="getResult()" class="spc-button">=</button>
+                <button onclick="appendToScreen(4)" >4</button>
+                <button onclick="appendToScreen(5)" >5</button>
+                <button onclick="appendToScreen(6)" >6</button>
+                <button onclick="appendToScreen(1)" >1</button>
+                <button onclick="appendToScreen(2)" >2</button>
+                <button onclick="appendToScreen(3)" >3</button>
+                <button onclick="appendToScreen(0)" >0</button>
+                <button onclick="appendToScreen('.')">.</button>
+                <button onclick="clearDisplay()">C</button>
             </div>
-        </div>  
+        </div>
+        <script src="/Script/calcScript.js"></script>
     </body>
 </html>

@@ -13,32 +13,35 @@ body{
     width: 40rem;
     display: flex;
     flex-direction: column;
+    height: 370px;
     border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
 }
 
 .calc .display{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    text-indent: -70px;
+    text-indent: 20px;
     border-radius: 10px 10px 0px 0px;
     width: 100%;
+    border: none;
+    font-size: 40px;
     background-color: black;
     color: white;
-    height: 70px;
+    height: 200px;
 }
-
 
 .keys{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 7fr 7fr 7fr 7fr;
 }
 
 .keys .spc-button{
     grid-column: 4/5;
-    grid-row: 2/6;    
+    grid-row: 2/6; 
 }
 
 .keys > button{
@@ -53,13 +56,27 @@ body{
     transition: 100ms ease-in;
 }
 
-.keys .op{
+.keys .opPlus,
+.keys .opMin,
+.keys .opMul,
+.keys .opDiv{
     background-color: lightgrey;
     border-right: .5px solid grey;
     border-bottom: .5px solid grey;
 }
 
-.keys .op:hover{
+.keys .opPlus:hover,
+.keys .opMin:hover,
+.keys .opMul:hover,
+.keys .opDiv:hover{
+    background-color: gray;
+    border: gray;
+}
+
+.keys .active,
+.keys .active,
+.keys .active,
+.keys .active{
     background-color: grey;
     border: grey;
 }
