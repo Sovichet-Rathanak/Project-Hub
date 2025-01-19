@@ -6,6 +6,31 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.weui--back-filled {
+    display: inline-block;
+    width: 12px;
+    height: 24px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='m3.343 12l7.071 7.071L9 20.485l-7.778-7.778a1 1 0 0 1 0-1.414L9 3.515l1.414 1.414z'/%3E%3C/svg%3E");
+  }
+
+.back-button{
+    all: unset;
+    cursor: pointer;
+    font-family: "Satoshi";
+    font-weight: 500;
+    font-size: 17px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    left: 70px;
+    top: 70px;  
 }
 
 .calc{
