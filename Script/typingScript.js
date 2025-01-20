@@ -1,6 +1,6 @@
 const words = 'Apple Horizon Whisper Marble Lantern River Echo Feather Galaxy Cinnamon Puzzle Velvet Thunder Meadow Crystal Breeze Compass Blossom Starlight Harmony Cactus Mirror Cascade Tundra Eclipse Serpent Gemstone Driftwood Twilight Fern Infinity Shadow Snowflake Labyrinth Orchard Quiver Sapphire Phoenix Paradox Zenith Firefly Mistral Oasis Cobblestone Dandelion Nebula Parchment Sphinx Gossamer Ripple Sundial Inkling Mirage Thistle Moonstone Tapestry Fossil Ember Hummingbird Mosaic Whisper Lantern Stream Wanderlust Equinox Juniper Zircon Mandala Radiance Echo Serendipity Whimsy Constellation Dreamscape Quasar Prism Sequoia Solstice Haze Tranquility Fable Obsidian Petal Euphoria Nomad Firework Cascade Fragment Lantern Breeze Cinnamon Puzzle Serpent Velvet Eclipse Driftwood Blossom Thunder Dandelion Horizon Galaxy Tundra Starlight Sphinx Quiver Compass Snowflake Serenade Nomad Nebula Firework Harmonic'.toLowerCase().split(' ');
 const wordLength = words.length;
-const gameTime = 2*1000;
+const gameTime = 30*1000;
 const textContainer = document.querySelector('.text-container');
 const mainContainer = document.querySelector('.main-container')
 window.timer = null;
