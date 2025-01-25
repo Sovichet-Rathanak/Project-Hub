@@ -45,13 +45,14 @@ main .container-header {
 
 .card-container {
     flex-grow: 1;
-    width: calc(100% - 20rem);
+    width: 1750px;
     margin: 0 10rem;
     display: flex;
     flex-direction: row;
     gap: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y: none;
+    overflow-x: none;
+    flex-wrap: wrap;
 }
 
 .card-container .card {

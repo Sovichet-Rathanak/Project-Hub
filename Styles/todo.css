@@ -1,0 +1,147 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+html{
+    background-color: #1b1b20;
+    overflow:hidden;
+}
+
+*{
+    font-family: "Satoshi";
+}
+
+.back-button{
+    all: unset;
+    cursor: pointer;
+    font-family: "Satoshi";
+    font-weight: 500;
+    font-size: 17px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    left: 70px;
+    top: 70px; 
+    color: white; 
+}
+
+.weui--back-filled {
+    display: inline-block;
+    width: 12px;
+    height: 24px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='m3.343 12l7.071 7.071L9 20.485l-7.778-7.778a1 1 0 0 1 0-1.414L9 3.515l1.414 1.414z'/%3E%3C/svg%3E");
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-container{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+    height: 75%;
+    /* border: 1px solid white; */
+}
+
+.todo-block{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+    width: 33%;
+    height: 100%;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    background-color: #202026;
+    border: 1px solid rgb(72, 72, 72);
+}
+
+.block-heading{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    color: white;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin-left: 1rem;
+}
+
+.red-dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:28px;
+    width:28px;
+    border-radius: 50%;
+    background-color: #ff0000b3;
+    animation: glow 1.5s linear infinite;
+}
+
+.orange-dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:28px;
+    width:28px;
+    border-radius: 50%;
+    background-color: #ff9900b3;
+    animation: glow 1.5s linear infinite;
+}
+
+.green-dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:28px;
+    width:28px;
+    border-radius: 50%;
+    background-color: #adff2fb3;
+    animation: glow 1.5s linear infinite;
+}
+
+.red-dot .inner-dot{
+    height:14px;
+    width:14px;
+    border-radius: 50%;
+    background-color: red;
+    border: 3.5px solid #202026;
+}
+
+.orange-dot .inner-dot{
+    height:14px;
+    width:14px;
+    border-radius: 50%;
+    background-color: #ff9900;
+    border: 3.5px solid #202026;
+}
+
+.green-dot .inner-dot{
+    height:14px;
+    width:14px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    border: 3.5px solid #202026;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(72, 72, 72);
+    background-color: #4c4c57;
+    height: 60px;
+    cursor: grab;
+}
+
