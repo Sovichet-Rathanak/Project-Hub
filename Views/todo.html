@@ -26,14 +26,19 @@
                     <div class="task" draggable="true">
                         <div class="task-heading">
                             Urgency:
-                            <select id="urgency">
-                                <option value="">Low</option>
-                                <option value="">Medium</option>
-                                <option value="">High</option>
-                            </select>
+                            <div class="custom-dropdown">
+                                <div class="default-option">No Urgency</div>
+                                <ul class="dropdown-options inactive">
+                                    <li class="option low">Low</li>
+                                    <li class="option medium">Medium</li>
+                                    <li class="option high">High</li>
+                                </ul>
+                            </div>
                         </div>
-                        hello world
+                        <h3>Hello World</h3>
                     </div>
+
+
                 </div>
                 <div class="in-progress todo-block">
                     <div class="block-heading">
@@ -53,5 +58,6 @@
                 </div>
             </div>
         </main>
+        <script src="/Script/todoScript.js"></script>
     </body>
 </html>
