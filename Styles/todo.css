@@ -42,26 +42,26 @@ main{
     align-items: center;
 }
 
-.block-container{
+.block-container {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
     padding: 2rem;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     gap: 50px;
     width: 80%;
-    height: 75%;
-    /* border: 1px solid white; */
+    max-height: 800px; 
+    height: 100%; 
+    overflow: hidden; 
 }
 
-.todo-block{
-    display: flex;
-    flex-direction: column;
+.todo-block {
+    overflow-x: hidden;
+    overflow-y: scroll; 
     padding-inline: 1rem;
     width: 33%;
-    height: 100%;
-    /* border: 1px solid red; */
+    height: 700px; 
     border-radius: 10px;
     background-color: #202026;
     border: 1px solid rgb(72, 72, 72);
@@ -135,50 +135,81 @@ main{
     border: 3.5px solid #202026;
 }
 
-.task{
+.task {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border-radius: 15px;
     border: 1px solid rgb(72, 72, 72);
+    border-radius: 15px;
     background-color: #4c4c57;
     height: 85px;
+    width:  100%;
     cursor: grab;
+    margin: 10px 0px;
     overflow: hidden;
 }
 
-.task .task-heading{
+.task .task-heading {
     margin-left: 1rem;
-    color: white;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
+    color: white;
 }
 
-.task-heading .custom-dropdown{
+.custom-dropdown {
+    position: relative;
     cursor: pointer;
     font-weight: bold;
     color: #0000009e;
-    position: relative;
 }
 
-.dropdown-options{
+.dropdown-options {
     display: none;
-}
-
-.inactive{
-    display: none;
-}
-
-.opt-active{
-    display: flex;
     position: absolute;
     left: -40px;
+    top: -15px;
     flex-direction: row;
-    list-style-type: none;
+    list-style: none;
     gap: 10px;
     margin: 0;
+}
+
+.dropdown-options.opt-active {
+    display: flex;
+    margin: 0;
+}
+
+.default {
+    display: flex;
+    margin: 0;
+}
+
+.option {
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.task > h3 {
+    margin: 5px 16px;
+    color: rgb(245, 245, 245);
+}
+
+
+.selected{
+    display: flex;
+    margin: 0;
+}    
+
+.hidden{
+    display: none;
 }
 
 .task > h3{
@@ -186,3 +217,14 @@ main{
     color: rgb(245, 245, 245);
 }
 
+.low{
+    color: grey;
+}
+
+.medium{
+    color: rgb(0, 0, 142);
+}
+
+.high{
+    color: purple;
+}

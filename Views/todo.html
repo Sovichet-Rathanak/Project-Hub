@@ -27,17 +27,16 @@
                         <div class="task-heading">
                             Urgency:
                             <div class="custom-dropdown">
-                                <div class="default-option">No Urgency</div>
+                                <div onclick="setActive('default')" class="option default">No Urgency</div>
                                 <ul class="dropdown-options inactive">
-                                    <li class="option low">Low</li>
-                                    <li class="option medium">Medium</li>
-                                    <li class="option high">High</li>
+                                    <li onclick="setActive('low')" class="option low">Low</li>
+                                    <li onclick="setActive('medium')" class="option medium">Medium</li>
+                                    <li onclick="setActive('high')" class="option high">High</li>
                                 </ul>
                             </div>
                         </div>
                         <h3>Hello World</h3>
                     </div>
-
 
                 </div>
                 <div class="in-progress todo-block">
