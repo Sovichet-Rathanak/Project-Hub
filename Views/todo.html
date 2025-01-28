@@ -13,7 +13,8 @@
             </button>
         </header>
         <main>
-            <input type="text">
+            <input class="user-input" type="text">
+            <button onclick="appendTask()">Create</button>
             <div class="block-container">
                 <div class="todo todo-block">
                     <div class="block-heading">
@@ -22,21 +23,8 @@
                         </span>
                         <h1>to do</h1>
                     </div>
-                    
-                    <div class="task" draggable="true">
-                        <div class="task-heading">
-                            Urgency:
-                            <div class="custom-dropdown">
-                                <div onclick="setActive('default')" class="option default">No Urgency</div>
-                                <ul class="dropdown-options inactive">
-                                    <li onclick="setActive('low')" class="option low">Low</li>
-                                    <li onclick="setActive('medium')" class="option medium">Medium</li>
-                                    <li onclick="setActive('high')" class="option high">High</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <h3>Hello World</h3>
-                    </div>
+
+
 
                 </div>
                 <div class="in-progress todo-block">

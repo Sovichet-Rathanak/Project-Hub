@@ -228,3 +228,7 @@ main{
 .high{
     color: purple;
 }
+
+.dragging{
+    opacity: .5;
+}
