@@ -1,72 +1,82 @@
-function appendTask(){
-    //Handle Create
+function appendTask() {
+    // Handle Create
     const input = document.querySelector(".user-input").value;
-    if(input === ""){
+    if (input === "") {
         alert("Task Cannot Be Empty");
         return;
     }
-    
+
     var element = document.createElement('div');
-    element.innerHTML = `<div class="task" draggable="true"><div class="task-heading">Urgency:<div class="custom-dropdown"><div onclick="setActive('default')" class="option default">No Urgency</div><ul class="dropdown-options inactive"><li onclick="setActive('low')" class="option low">Low</li><li onclick="setActive('medium')" class="option medium">Medium</li><li onclick="setActive('high')" class="option high">High</li></ul></div></div><h3 class="message"></h3></div>`;
+    element.classList.add("task");
+    element.setAttribute("draggable", "true");
     
-    let taskMessage = element.querySelector('.message');
-    taskMessage.textContent = input;
-    console.log(document.querySelector('.task.message'))
+    element.innerHTML = `
+        <div class="task-heading">
+            Urgency:
+            <div class="custom-dropdown">
+                <div class="option default" data-urgency="default">No Urgency</div>
+                <ul class="dropdown-options inactive">
+                    <li class="option low">Low</li>
+                    <li class="option medium">Medium</li>
+                    <li class="option high">High</li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="message">${input}</h3>
+    `;
 
     document.querySelector(".todo.todo-block").appendChild(element);
-    const dropDown = document.querySelector('.custom-dropdown');
 
-    dropDown.addEventListener('click', function () {
-        const options = document.querySelector('.dropdown-options');
-        const defaultOpt = document.querySelector('.default');
+    const dropdown = element.querySelector('.custom-dropdown');
+    const defaultOpt = dropdown.querySelector('.default');
+    const optionsList = dropdown.querySelector('.dropdown-options');
 
-        if (options.classList.contains("opt-active")) {
-            options.classList.remove("opt-active");
-            defaultOpt.classList.remove("hidden"); 
-        } else {
-            options.classList.add("opt-active");
-            defaultOpt.classList.add("hidden"); 
-        }
+    defaultOpt.addEventListener('click', function () {
+        optionsList.classList.toggle('inactive'); 
     });
 
-    //Handle Dragging
-    const draggable = element.querySelectorAll('.task');
-    const containers = document.querySelectorAll('.todo-block');
-
-    draggable.forEach(draggable => {
-        draggable.addEventListener('dragstart', function(){
-            draggable.classList.add("dragging")
-        })
-
-        draggable.addEventListener('dragend', function(){
-            draggable.classList.remove("dragging")
-        })
+    dropdown.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', function (event) {
+            setActive(event.target, event);
+            optionsList.classList.add('inactive'); 
+        });
     });
 
-    containers.forEach(container => {
-        container.addEventListener('dragover', event =>{
+    element.addEventListener("dragstart", function () {
+        element.classList.add("dragging");
+    });
+
+    element.addEventListener("dragend", function () {
+        element.classList.remove("dragging");
+    });
+
+    document.querySelectorAll(".todo-block").forEach(container => {
+        container.addEventListener("dragover", event => {
             event.preventDefault();
-            const draggable = document.querySelector('.dragging');
-            container.appendChild(draggable);
-        })
-    })
+            const draggingTask = document.querySelector(".dragging");
+            if (draggingTask) {
+                container.appendChild(draggingTask);
+            }
+        });
+    });
 }
 
-function setActive(input) {
-    const defaultOpt = document.querySelector('.default');
-    const options = document.querySelectorAll('.custom-dropdown .option');
-    options.forEach(option => option.classList.remove('selected'));
+function setActive(option, event) {
+    const dropdown = event.target.closest('.custom-dropdown');
+    if (!dropdown) return;
 
-    const optionSelect = document.querySelector(`.custom-dropdown .option.${input}`);
-    if (optionSelect) {
-        optionSelect.classList.add('selected');
-        defaultOpt.textContent = optionSelect.textContent;
+    const defaultOpt = dropdown.querySelector('.default');
+    const options = dropdown.querySelectorAll('.option');
 
-        const urgencyLevels = ['low', 'medium', 'high'];
-        defaultOpt.classList.remove(...urgencyLevels);
-        if (urgencyLevels.includes(input)) {
-            defaultOpt.classList.add(input);
-        }
+    options.forEach(opt => opt.classList.remove('selected'));
+
+    option.classList.add('selected');
+    defaultOpt.textContent = option.textContent;
+    defaultOpt.setAttribute("data-urgency", option.classList[1]); 
+
+    const urgencyLevels = ["low", "medium", "high"];
+    defaultOpt.classList.remove(...urgencyLevels);
+    if (urgencyLevels.includes(option.classList[1])) {
+        defaultOpt.classList.add(option.classList[1]);
     }
 }
-
