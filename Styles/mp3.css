@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
 
 body{
+    font-family: "Satoshi";
     margin: 0;
     padding: 0;
 }
@@ -8,6 +9,7 @@ body{
 main{
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -61,20 +63,73 @@ main{
     padding: .5rem 2rem;
 }
 
+.music-info{
+    width: 670px;
+    display: none;
+    position: inherit;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: inset 0px -20px 25px 0px rgba(0, 0, 0, 0.25);
+    background-color: rgb(225, 174, 112);
+}
+
+@keyframes grow {
+    0% {
+      height: 0;
+    }
+    100%{
+      height: 200px;
+    }
+}
+
+@keyframes shrink {
+    0%{
+        height: 200px;
+    }
+    100%{
+        height: 0;
+    }
+}
+
+.info-active{
+    display: block;
+    animation: grow .3s ease-out forwards;
+}
+
+.info-inactive{
+    display: block;
+    animation: shrink .3s ease-out forwards;
+}
+
+hgroup > h3{
+    margin: 0;
+}
+
+hgroup > h1{
+    margin: 0;
+}
+
 .disk{
     height: 230px;
     width: 230px;
     border: 10px solid #FFCF96;
     border-radius: 50%;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     background-color: black;
+    overflow: hidden;
+}
+
+.disk > img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .disk-hole{
     height: 35px;
     width: 35px;
+    position: absolute;
     border-radius: 50px;
     border: 5px solid white;
     background-color: grey;
@@ -138,7 +193,16 @@ main{
     display: none;
 }
 
-.goUp{
-    transition: 100ms ease-in;
-    transform: translateY(-1rem);
+@keyframes spin {
+    0%{
+        transform: rotateZ(0deg);
+    }   
+    100%{
+        transform: rotateZ(360deg);
+    } 
+}
+
+.disk-spin{
+    animation: spin 3s linear infinite;
+    animation-delay: 1s;
 }
