@@ -10,7 +10,7 @@ const albumArt = document.querySelector(".album-art");
 const musicSrc = document.querySelector(".music")
 const trackLength = document.querySelector(".tracktime-length");
 const currentTrackTime = document.querySelector(".tracktime-current");
-let currentIndex = 1;
+let currentIndex = 0;
 
 let trackList = [
     {
@@ -28,25 +28,25 @@ let trackList = [
         trackURL: "/Assets/Audio/ផ្អែក.mp3",
     },
     {
-        trackName: "No One Noticed",
-        artistName: "The Marias",
-        albumName: "Submarine",
-        albumCover: "/Assets/submarine_alb.jpg",
-        trackURL: "MP3 TRACK",
+        trackName: "Devil In A New Dress",
+        artistName: "Kanye West",
+        albumName: "My Beautiful Dark Twisted Fantasy",
+        albumCover: "/Assets/AlbumArt/mbdtf.jpg",
+        trackURL: "/Assets/Audio/newDress.mp3",
     },
     {
-        trackName: "No One Noticed",
-        artistName: "The Marias",
-        albumName: "Submarine",
-        albumCover: "/Assets/submarine_alb.jpg",
-        trackURL: "MP3 TRACK",
+        trackName: "All Red",
+        artistName: "Playboi Carti",
+        albumName: "ALL RED",
+        albumCover: "/Assets/AlbumArt/allred.jpg",
+        trackURL: "/Assets/Audio/allRed.mp3",
     },
     {
-        trackName: "No One Noticed",
-        artistName: "The Marias",
-        albumName: "Submarine",
-        albumCover: "/Assets/submarine_alb.jpg",
-        trackURL: "MP3 TRACK",
+        trackName: "Blue",
+        artistName: "Yung Kai",
+        albumName: "Single",
+        albumCover: "/Assets/AlbumArt/blue.jpg",
+        trackURL: "/Assets/Audio/blue.mp3",
     }
 ]
 musicSrc.src = trackList[currentIndex].trackURL;
@@ -59,7 +59,14 @@ musicSrc.addEventListener("timeupdate", function(){
     currentTrackTime.textContent = formatTime(musicSrc.currentTime);
 
     const progressPercent = (musicSrc.currentTime / musicSrc.duration) * 100;
-    const progressBar = document.querySelector(".seek-bar").style.width = progressPercent + "%";
+    document.querySelector(".seek-bar").style.width = progressPercent + "%";
+})
+
+musicSrc.addEventListener("ended", function(){
+    currentIndex++;
+    console.log(currentIndex);
+    musicSrc.pause();
+    musicSrc.load();
 })
 
 function formatTime(seconds){
@@ -103,3 +110,39 @@ pauseButton.addEventListener('click', function(){
         pauseButton.classList.add("hide-btn");
     }
 })
+
+forwardButton.addEventListener('click', function(){
+    currentIndex++;
+    if(musicSrc.paused){
+        setTimeout(function(){
+            disk.classList.remove("disk-spin");
+            musicSrc.src = trackList[currentIndex].trackURL;
+            musicTitle.textContent = trackList[currentIndex].trackName;
+            musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
+            albumArt.src = trackList[currentIndex].albumCover;
+        }, 100)
+    }else{
+        trackLoader();
+    }
+})
+
+function trackLoader(){
+    musicSrc.pause();
+    musicSrc.load();
+    disk.classList.remove("disk-spin");
+    albumArt.src = "";
+    setTimeout(function(){
+        musicSrc.src = trackList[currentIndex].trackURL;
+        musicTitle.textContent = trackList[currentIndex].trackName;
+        musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
+        albumArt.src = trackList[currentIndex].albumCover;
+        disk.classList.add("disk-spin");
+        musicSrc.play();
+    }, 500)
+}
+
+//TODO: Handle playlist forward loop
+//TODO: Backward function
+//TODO: looping function
+//TODO: Shuffle function
+//TODO: Volume controller
