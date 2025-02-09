@@ -10,6 +10,7 @@ const albumArt = document.querySelector(".album-art");
 const musicSrc = document.querySelector(".music")
 const trackLength = document.querySelector(".tracktime-length");
 const currentTrackTime = document.querySelector(".tracktime-current");
+const lines = document.querySelectorAll('.soundwaves .line');
 let currentIndex = 0;
 
 let trackList = [
@@ -81,6 +82,9 @@ playButton.addEventListener('click', function(){
         albumArt.src = trackList[currentIndex].albumCover;
         disk.classList.add("disk-spin");
         disk.style.animationPlayState = "running";
+        lines.forEach(lines => {
+            lines.style.animationPlayState = "running";
+        })
         musicSrc.play();
     }, 300);
     musicTitle.textContent = trackList[currentIndex].trackName;
@@ -99,6 +103,9 @@ playButton.addEventListener('click', function(){
 pauseButton.addEventListener('click', function(){
     //Animation
     disk.style.animationPlayState = "paused";
+    lines.forEach(lines => {
+        lines.style.animationPlayState = "paused";
+    });
     musicSrc.pause();
 
     musicInfo.classList.add("info-inactive");
@@ -112,7 +119,7 @@ pauseButton.addEventListener('click', function(){
 })
 
 forwardButton.addEventListener('click', function(){
-    currentIndex++;
+    currentIndex = (currentIndex + 1) % trackList.length; 
     if(musicSrc.paused){
         setTimeout(function(){
             disk.classList.remove("disk-spin");
@@ -120,7 +127,22 @@ forwardButton.addEventListener('click', function(){
             musicTitle.textContent = trackList[currentIndex].trackName;
             musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
             albumArt.src = trackList[currentIndex].albumCover;
-        }, 100)
+        }, 100);
+    }else{
+        trackLoader();
+    }
+})
+
+backwardButton.addEventListener('click', function(){
+    currentIndex = (currentIndex - 1 + trackList.length) % trackList.length; 
+    if(musicSrc.paused){
+        setTimeout(function(){
+            disk.classList.remove("disk-spin");
+            musicSrc.src = trackList[currentIndex].trackURL;
+            musicTitle.textContent = trackList[currentIndex].trackName;
+            musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
+            albumArt.src = trackList[currentIndex].albumCover;
+        }, 100);
     }else{
         trackLoader();
     }
@@ -131,18 +153,18 @@ function trackLoader(){
     musicSrc.load();
     disk.classList.remove("disk-spin");
     albumArt.src = "";
+    lines.forEach(lines => {
+        lines.style.animationPlayState = "paused";
+    });
     setTimeout(function(){
         musicSrc.src = trackList[currentIndex].trackURL;
         musicTitle.textContent = trackList[currentIndex].trackName;
         musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
         albumArt.src = trackList[currentIndex].albumCover;
         disk.classList.add("disk-spin");
+        lines.forEach(lines => {
+            lines.style.animationPlayState = "running";
+        });
         musicSrc.play();
-    }, 500)
+    }, 300)
 }
-
-//TODO: Handle playlist forward loop
-//TODO: Backward function
-//TODO: looping function
-//TODO: Shuffle function
-//TODO: Volume controller
