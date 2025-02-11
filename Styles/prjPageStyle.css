@@ -11,14 +11,12 @@ html, body {
     width: 100%;
     font-family: "Satoshi", sans-serif;
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow-y: auto;
+    height: fit-content;
     overflow-x: hidden;
 }
 
@@ -50,8 +48,6 @@ main .container-header {
     display: flex;
     flex-direction: row;
     gap: 100px;
-    overflow-y: none;
-    overflow-x: none;
     flex-wrap: wrap;
 }
 
@@ -69,6 +65,11 @@ main .container-header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card:hover{
+    transition: 200ms ease-in;
+    transform: translateY(-10px);
 }
 
 footer {

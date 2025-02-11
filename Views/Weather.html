@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather</title>
+        <link rel="stylesheet" href="/Styles/weather.css">
+    </head>
+    <body>
+        <img src="/Assets/weatherBG.jpg" alt="background_img"> 
+        <button onclick="window.location.href = './ProjectList.html';" class="back-button"> 
+            <span class="weui--back-filled"></span> Back
+        </button>
+        <main>
+            <div class="container">
+                <div class="search">
+                    <div class="input-holder">
+                        <span class="mingcute--location-fill"></span>
+                        <input class="city-input" type="text" placeholder="City">
+                    </div>
+                    <button class="search-button" onclick="displayResult()"><span class="iconamoon--search"></span></button>
+                </div>
+                <div class="main-content">
+                    <div class="weather-status">
+                        <div class="image-container">
+                            <img class="weatherIcon" rc="/Assets/WeatherIcon/sun.svg" alt="weather status">   
+                        </div>
+                        <hgroup>
+                            <h1 class="temperature">32</h1>
+                            <h1 class="weather-code">Sunny</h1>
+                        </hgroup>
+                    </div>
+                    <div class="wind-humid">
+                        <div class="humidity">
+                            <span class="lets-icons--humidity"></span>
+                            <div class="humid-detail">
+                                <h2 class="humid-percent" >70%</h2>
+                                <span>Humidity</span>
+                            </div>
+                        </div>
+
+                        <div class="windSpeed">
+                            <span class="meteocons--wind-fill"></span>
+                            <div class="wind-detail">
+                                <h2 class="speed">45 Km/h</h2>
+                                <span>Wind Speed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="/Script/weatherScript.js"></script>
+    </body>
+</html>
