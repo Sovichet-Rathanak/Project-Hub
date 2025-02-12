@@ -79,7 +79,7 @@ main{
 }
 
 .active{
-    animation: grow .3s ease-out forwards;
+    animation: grow 500ms ease-out forwards;
 }
 
 .search{

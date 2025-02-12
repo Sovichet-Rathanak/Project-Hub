@@ -1,0 +1,58 @@
+<!-- HTML !-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagotchi</title>
+    <link rel="stylesheet" href="/Styles/tamagotchi.css">
+  </head>
+  <body>
+    <button onclick="window.location.href = './ProjectList.html';" class="back-button"> 
+      <span class="weui--back-filled"></span> Back
+    </button>
+    <main>
+      <div class="container">
+        <div class="screen">
+          <div class="stat">
+            <div class="sleep-stat">
+              <span class="solar--sleeping-circle-bold"></span>
+              <span class="sleep-percent">100%</span>
+            </div>
+            <div class="hunger-stat">
+              <span class="fluent--food-16-filled"></span>
+              <span class="hunger-percent">100%</span>
+            </div>
+            <div class="boredom-stat">
+              <span class="mingcute--run-fill"></span>
+              <span class="boredom-percent">100%</span>
+            </div>
+            <div class="clean-stat">
+              <span class="material-symbols--clean-hands-rounded"></span>
+              <span class="clean-percent">100%</span>
+            </div>
+          </div>
+          <div class="character">
+            <img src="/Assets/Tamagotchi/slime.gif" alt="">
+          </div>
+          <img class="scene" src="" alt="">
+        </div>
+        <div class="button-container">
+          <button class="button-sleep" role="button">
+            <span class="solar--moon-sleep-bold"></span>
+          </button>
+          <button class="button-eat" role="button">
+            <span class="ion--fast-food"></span>
+          </button>
+          <button class="button-walk" role="button">
+            <span class="material-symbols--nature-people"></span>
+          </button>
+          <button class="button-bathroom" role="button">
+            <span class="majesticons--bath-shower"></span>
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="/Script/tamagotchi.js"></script>
+  </body>
+</html>

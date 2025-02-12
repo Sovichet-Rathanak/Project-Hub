@@ -67,7 +67,12 @@ musicSrc.addEventListener("ended", function(){
     currentIndex++;
     console.log(currentIndex);
     musicSrc.pause();
+    musicSrc.src = trackList[currentIndex].trackURL;
+    musicTitle.textContent = trackList[currentIndex].trackName;
+    musicSubtitle.textContent = `${trackList[currentIndex].artistName} - ${trackList[currentIndex].albumName}`;
+    albumArt.src = trackList[currentIndex].albumCover;
     musicSrc.load();
+    musicSrc.play();
 })
 
 function formatTime(seconds){

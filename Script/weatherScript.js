@@ -153,7 +153,7 @@ async function getData() {
         lat = cityData.results[0].latitude;
         long = cityData.results[0].longitude;
 
-        return true; // Return success
+        return true; 
     } catch (error) {
         console.error("Error fetching city data:", error);
         alert(error.message);
@@ -188,7 +188,7 @@ async function getWeather() {
 }
 
 async function displayResult() {
-    if (!(await getData())) return; // Stop if city validation fails
+    if (!(await getData())) return; 
     await getWeather();
 
     container.classList.add("active");
@@ -201,6 +201,6 @@ async function displayResult() {
     if (weather_codes[cityWeather]?.icon) {
         weatherIcon.src = weather_codes[cityWeather].icon;
     } else {
-        weatherIcon.src = "default-weather-icon.png"; // Fallback icon
+        weatherIcon.src = "default-weather-icon.png"; 
     }
 }
