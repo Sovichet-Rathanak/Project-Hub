@@ -301,3 +301,18 @@ button.button-sleep:active::before {
     color: whitesmoke;
     font-size: 28px;
 }
+
+.game-over{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-over > button{
+    all: unset;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 1rem;
+    cursor: pointer;
+}
