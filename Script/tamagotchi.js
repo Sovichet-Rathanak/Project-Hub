@@ -20,7 +20,7 @@ const stats = [
     { state: "Sleepiness", currentStat: 100 },
     { state: "Hunger", currentStat: 100 },
     { state: "Boredom", currentStat: 100 },
-    { state: "Cleanliness", currentStat: 100 },
+    { state: "Cleanliness", currentStat: 100},
 ];
 
 let gameRunning = true;
@@ -114,6 +114,8 @@ function updateUI() {
 function checkGameOver() {
     if (stats.some(stat => stat.currentStat <= 0)) {
         gameOverSfx.play();
+        bgmMusic.pause();
+        bgmMusic.currentTime = 0;
         gameRunning = false;
         showGameOverScreen();
     }
