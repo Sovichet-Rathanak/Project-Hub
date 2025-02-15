@@ -3,16 +3,18 @@ const selector = document.querySelector(".selector");
 const buttons = document.querySelectorAll(".answers button");
 const difficulty = document.querySelector(".difficulty");
 const question = document.querySelector(".question-asked");
+const currentScore = document.querySelector(".current-score");
 let selectCurrent = 0;
-let answers = [];
 let correctAnswer = "";
+let incorrectAnswer = [];
+let score = 0;
+let allQuestions = [];
+let lvl = 0;
 
 function updateSelector(){
     const selectedButton = buttons[selectCurrent];
     selector.style.top = `${selectedButton.offsetTop}px`;
 }
-
-updateSelector();
 
 window.addEventListener("keydown", (ev) => {
     if (ev.key === "ArrowUp" && selectCurrent > 0) {
@@ -21,6 +23,8 @@ window.addEventListener("keydown", (ev) => {
         selectCurrent++;
     } else if (ev.key === "Enter") {
         buttons[selectCurrent].click(); 
+        lvl++;
+        setTimeout(updateQuestion, 1000);
     }
     updateSelector();
 });
@@ -43,8 +47,6 @@ function rotateCard(event, element){
     element.style.setProperty("--rotateY", offsetY + "deg");
 }
 
-getData();
-
 async function getData() {
     try{
         const response = await fetch("https://opentdb.com/api.php?amount=50&category=18&type=multiple");
@@ -53,12 +55,24 @@ async function getData() {
             throw new Error("Error fetching Trivia API")
         }
         const responseJson = await response.json();
-        const randNum = Math.floor(Math.random());
-        const data = responseJson.results[randNum];
-        console.log(data);
+        console.log('JSON', responseJson);
+        allQuestions = responseJson.results;
+    }catch(error){
+        console.log("Fetch data error: ", error);
+    }
+    updateQuestion()
+}
+
+function updateQuestion(){
+    if(allQuestions.length <= 50){
+        selectCurrent = 0;
+        updateSelector();
+        data = allQuestions[lvl];
+        console.log(lvl);
+        console.log(allQuestions);
 
         correctAnswer = data.correct_answer;
-        const incorrectAnswer = data.incorrect_answers;
+        incorrectAnswer = data.incorrect_answers;
         const allAnswer = [correctAnswer, ...incorrectAnswer];
 
         console.log("All available answer: ", allAnswer);
@@ -68,14 +82,32 @@ async function getData() {
         selector.style.display = "flex";
         buttons.forEach((button, index) => {
             button.textContent = decodeHTML(allAnswer[index]);
-
+            console.log('correct: ', correctAnswer);
             button.addEventListener('click', () => {
-                validateAnswer(button.textContent);
-            })
+                if(button.textContent === decodeHTML(correctAnswer)){
+                    score += 1;
+                    console.log('text-content', button.textContent);
+                    
+                    currentScore.textContent = `Score: ${score}/50`
+                    button.style.color = "Green";
+                    button.style.fontWeight = "Bold";
+                }else{
+                    buttons.forEach((button) => {
+                        if(decodeHTML(incorrectAnswer).includes(button.textContent)){
+                            button.style.color = "Red";
+                            button.style.fontWeight = "Bold";
+                        }else{
+                            button.style.color = "Green";
+                            button.style.fontWeight = "Bold";
+                        }
+                    });
+                }
+            }, {once: true});
         });
-    }catch(error){
-        console.log("Fetch data error: ", error);
+    }else{
+        return;
     }
+    resetButton();
 }
 
 // Function to shuffle the answers array
@@ -86,21 +118,21 @@ function shuffleArray(array) {
     }
 }
 
-function validateAnswer(textContent){
-    if(textContent === correctAnswer){
-        alert("Yayyy")
-    }else{
-        alert("womp")
-    }
-}
-
 function decodeHTML(string){
     const element = document.createElement("div");
     element.innerHTML = string;
     return element.textContent || element.innerText;
 }
 
+function resetButton(){
+    buttons.forEach(button => {
+        button.style.color = "Black";
+        button.style.fontWeight = 500;
+    })
+}
+
+getData();
+
 //TODO: Score system
-//TODO: Jump to next question
 //TODO: Highest score system
 //TODO: Timer system

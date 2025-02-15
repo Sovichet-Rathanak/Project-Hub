@@ -8,13 +8,13 @@ body{
 }
 
 main{
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
+    position: relative;
 }
 
 .weui--back-filled {
@@ -150,5 +150,19 @@ hgroup > h3{
     top: 0px;
     bottom: 0px;
     animation: blink 1s linear infinite;
+    display: none;
+}
+
+.score-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    font-family: "Bungee Shade", serif;
+}
+
+.high-score{
     display: none;
 }
