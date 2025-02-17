@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
 
 body, html {
-    font-family: "Satoshi";
+    font-family: "Satoshi", sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -13,6 +13,7 @@ main {
     display: flex;
     flex-direction: row;
     overflow-y: hidden;
+    flex-wrap: wrap; /* Allows items to wrap if needed */
 }
 
 /* Header Section */
@@ -24,7 +25,7 @@ main {
 }
 
 .title-container > h1 {
-    font-size: 40px;
+    font-size: clamp(2rem, 5vw, 40px); /* Scales with screen */
     font-weight: 900;
     padding: 3.188rem 4.438rem;
     box-sizing: border-box;
@@ -37,7 +38,7 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin: 5rem 0rem 0rem 10rem;
+    margin: 5rem 0 0 10rem;
 }
 
 .welcome-container {
@@ -48,27 +49,27 @@ main {
 
 .welcome-container h1 {
     font-size: clamp(2rem, 5vw, 70px);
-    margin: 0px 0px 40px 0px;
+    margin: 0 0 40px 0;
 }
 
 .welcome-container h5 {
-    font-size: 30px;
-    margin: 0px 0px 40px 0px;
+    font-size: clamp(1.2rem, 3vw, 30px);
+    margin: 0 0 40px 0;
     color: grey;
 }
 
 .explore-button {
-    font-family: "Satoshi";
+    font-family: "Satoshi", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    font-size: 30px;
+    font-size: clamp(1rem, 2.5vw, 30px);
     font-weight: bold;
     color: white;
     gap: 20px;
-    width: 250px;
-    height: 70px;
+    width: clamp(150px, 20vw, 250px);
+    height: clamp(50px, 7vh, 70px);
     border-radius: 150px;
     align-self: flex-start;
     background-color: black;
@@ -76,4 +77,64 @@ main {
     cursor: pointer;
 }
 
-/* Media Queries for Responsiveness */
+/* 🔽 Media Queries for Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .left-section {
+        margin: 3rem 0 0 5rem;
+        width: 60%;
+    }
+
+    .welcome-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .left-section {
+        width: 90%;
+        margin: 3rem auto;
+        align-items: center;
+    }
+
+    .welcome-container h1 {
+        font-size: clamp(1.8rem, 6vw, 50px);
+    }
+
+    .explore-button {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-container {
+        height: auto;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .title-container > h1 {
+        font-size: clamp(1.5rem, 6vw, 35px);
+        padding: 1rem;
+    }
+
+    .left-section {
+        margin: 2rem auto;
+        width: 95%;
+        align-items: center;
+    }
+
+    .welcome-container {
+        width: 100%;
+    }
+
+    .explore-button {
+        width: 50%;
+        font-size: clamp(1rem, 5vw, 25px);
+    }
+}
