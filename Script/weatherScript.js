@@ -1,115 +1,115 @@
 const weather_codes = {
     0: {
         name: "Clear Sky",
-        icon: "/Assets/WeatherIcon/sun.svg"
+        icon: "../Assets/WeatherIcon/sun.svg"
     },
     1: {
         name: "Mainly Clear",
-        icon: "/Assets/WeatherIcon/sun.svg"
+        icon: "../Assets/WeatherIcon/sun.svg"
     },
     2: {
          name: "Partly Cloudy",
-         icon: "/Assets/WeatherIcon/cloudy.svg"
+         icon: "../Assets/WeatherIcon/cloudy.svg"
     },
     3: {
         name: "Overcast",
-        icon: "/Assets/WeatherIcon/cloudy.svg"
+        icon: "../Assets/WeatherIcon/cloudy.svg"
     },
     45: {
         name: "Fog",
-        icon: "/Assets/WeatherIcon/fog.svg"
+        icon: "../Assets/WeatherIcon/fog.svg"
     },
     48: {
         name: "Rime Fog",
-        icon: "/Assets/WeatherIcon/fog.svg"
+        icon: "../Assets/WeatherIcon/fog.svg"
     },
     51: {
          name: "Light Drizzle",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     53: {
          name: "Moderate Drizzle",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     55: {
          name: "Heavy Drizzle",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     56: {
          name: "Light Freezing Drizzle",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     57: {
          name: "Dense Freezing Drizzle",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     61: {
          name: "Slight Rain",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     63: {
          name: "Moderate Rain",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     65: {
          name: "Heavy Rain",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     66: {
          name: "Light Freezing Rain",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     67: {
          name: "Heavy Freezing Rain",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     71: {
          name: "Slight snowfall",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     73: {
          name: "Moderate snowfall",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     75: {
          name: "Heavy snowfall",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     77: {
          name: "Snow Grains",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     80: {
          name: "Slight Rain Showers",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     81: {
          name: "Moderate Rain Showers",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     82: {
          name: "Violent Rain Showers",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     85: {
          name: "Light Snow Showers",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     86: {
          name: "Heavy Snow Showers",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     95: {
          name: "Thunderstorm",
-         icon: "/Assets/WeatherIcon/rain.svg"
+         icon: "../Assets/WeatherIcon/rain.svg"
     },
     96: {
          name: "Slight Hailstorm",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     },
     99: {
          name: "Heavy Hailstorm",
-         icon: "/Assets/WeatherIcon/snow.svg"
+         icon: "../Assets/WeatherIcon/snow.svg"
     }
 };
 let lat = 0;

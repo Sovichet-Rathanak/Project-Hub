@@ -7,11 +7,11 @@ const livingroomBtn = document.querySelector(".button-living");
 const buttonArray = [sleepBtn, eatBtn, walkBtn, bathroomBtn, livingroomBtn];
 
 // Scenes and Screen
-const bedroom = "/Assets/Tamagotchi/bedroom.png";
-const kitchen = "/Assets/Tamagotchi/food.jpg";
-const outside = "/Assets/Tamagotchi/walk.jpg";
-const bathroom = "/Assets/Tamagotchi/bathroom.jpg";
-const livingroom = "/Assets/Tamagotchi/livingRoom.jpg";
+const bedroom = "../Assets/Tamagotchi/bedroom.png";
+const kitchen = "../Assets/Tamagotchi/food.jpg";
+const outside = "../Assets/Tamagotchi/walk.jpg";
+const bathroom = "../Assets/Tamagotchi/bathroom.jpg";
+const livingroom = "../Assets/Tamagotchi/livingRoom.jpg";
 const screenScene = document.querySelector(".scene");
 const loadingScreen = document.querySelector(".loading-screen");
 
@@ -27,9 +27,9 @@ let gameRunning = true;
 let buttonCoolDown = false;
 
 // Miscellaneous
-const buttonSfx = new Audio("/Assets/Tamagotchi/button.mp3");
-const gameOverSfx = new Audio("/Assets/Tamagotchi/gameOver.mp3");
-const bgmMusic = new Audio("/Assets/Tamagotchi/bgm.mp3");
+const buttonSfx = new Audio("../Assets/Tamagotchi/button.mp3");
+const gameOverSfx = new Audio("../Assets/Tamagotchi/gameOver.mp3");
+const bgmMusic = new Audio("../Assets/Tamagotchi/bgm.mp3");
 bgmMusic.volume = .3;
 window.onload = firstLoad();
 
